@@ -6,7 +6,7 @@ interface CounterPageProps {
 }
 
 function CounterPage({ counter }: CounterPageProps) {
-	if (!counter) return null;
+	if (!counter) return <div>counter error</div>;
 	return (
 		<div>
 			<div>{counter.number}</div>
