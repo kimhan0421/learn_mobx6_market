@@ -14,6 +14,7 @@ class CounterStore {
 	increase = () => {
 		this.number++;
 	};
+
 	decrease = () => {
 		this.number--;
 	};
