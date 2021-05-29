@@ -2,7 +2,7 @@ import { action, makeObservable, observable } from "mobx";
 import RootStore from "./index";
 
 class CounterStore {
-  number: number = 0;
+  number: number = 1;
   root;
 
   constructor(root: RootStore) {
