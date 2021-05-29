@@ -1,27 +1,33 @@
+import { inject, observer } from 'mobx-react';
 import ShopItem from './ShopItem';
 
 const items = [
 	{
-		itemName: '생수',
-		itemPrice: 850,
+		name: '생수',
+		price: 850,
 	},
 	{
-		itemName: '신라면',
-		itemPrice: 900,
+		name: '신라면',
+		price: 900,
 	},
 	{
-		itemName: '포카칩',
-		itemPrice: 1500,
+		name: '포카칩',
+		price: 1500,
 	},
 	{
-		itemName: '새우깡',
-		itemPrice: 1000,
+		name: '새우깡',
+		price: 1000,
 	},
 ];
+interface ShopItemListProps {
+	onPut?: any;
+}
 
-const ShopItemList = () => {
-	const itemList = items.map(item => <ShopItem {...item} key={item.itemName} />);
+const ShopItemList = ({ onPut }: ShopItemListProps) => {
+	const itemList = items.map(item => <ShopItem {...item} key={item.name} onPut={onPut} />);
 	return <div>{itemList}</div>;
 };
 
-export default ShopItemList;
+export default inject(({ market }) => ({
+	onPut: market.put,
+}))(observer(ShopItemList));

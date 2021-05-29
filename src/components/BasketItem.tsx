@@ -1,14 +1,16 @@
+import { observer } from 'mobx-react';
 import './BasketItem.css';
 
 interface BasketItemProps {
 	name: string;
 	price: number;
 	count: number;
+	onTake: any;
 }
 
-function BasketItem({ name, price, count }: BasketItemProps) {
+function BasketItem({ name, price, count, onTake }: BasketItemProps) {
 	return (
-		<div className='BasketItem'>
+		<div className='BasketItem' onClick={() => onTake(name)}>
 			<div className='name'>{name}</div>
 			<div className='price'>{price}원</div>
 			<div className='count'>{count}</div>
@@ -17,4 +19,4 @@ function BasketItem({ name, price, count }: BasketItemProps) {
 	);
 }
 
-export default BasketItem;
+export default observer(BasketItem);

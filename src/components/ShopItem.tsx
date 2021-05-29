@@ -1,17 +1,18 @@
 import './ShopItem.css';
 
 interface ShopItemProps {
-	itemName: any;
-	itemPrice: any;
+	name: string;
+	price: number;
+	onPut: any;
 }
 
-function ShopItem({ itemName, itemPrice }: ShopItemProps) {
+const ShopItem = ({ name, price, onPut }: ShopItemProps) => {
 	return (
-		<div className='ShopItem'>
-			<h4>{itemName}</h4>
-			<div>{itemPrice}원</div>
+		<div className='ShopItem' onClick={() => onPut(name, price)}>
+			<h4>{name}</h4>
+			<div>{price}원</div>
 		</div>
 	);
-}
+};
 
 export default ShopItem;
