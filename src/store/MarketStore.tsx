@@ -23,10 +23,8 @@ class MarketStore {
 
   put = (name: string, price: number) => {
     const { number } = this.root.counter;
-    // 존재하는지 찾고
     const exists = this.selectedItems.find((item) => item.name === name);
     if (!exists) {
-      // 존재하지 않는다면 새로 집어넣습니다.
       this.selectedItems.push({
         name,
         price,
